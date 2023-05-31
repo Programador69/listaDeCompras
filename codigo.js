@@ -44,11 +44,10 @@ const verListaCompras = () => {
 
 	const cursor = objeto.openCursor();
 
-	let datos = resultados.getElementsByTagName("DIV");
+	let datos = resultados.querySelectorAll("DIV");
 
-	for(let d of datos) {
-		d.remove();
-	}
+	datos.forEach(dato => dato.remove());
+	
 
 	cursor.addEventListener("success", ()=> {
 		if (cursor.result) {
@@ -154,11 +153,8 @@ const funcionGuardar = identificador => {
 
 	modificarLista({objeto : nuevoValor},parseInt(Id));
 
-	let datos = resultados.getElementsByTagName("DIV");
-	for(let d of datos) {
-		d.remove();
-	}
-
+	let datos = resultados.querySelectorAll("DIV");
+	
 	verListaCompras();
 
 	element.style.display = "none";
